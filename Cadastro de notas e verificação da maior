@@ -1,0 +1,37 @@
+#include<string.h>
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+#include<conio.h>
+
+typedef struct{
+    char nome[20];
+    int matricula;
+    int n1, n2, n3;
+}Aluno;
+int main()
+{
+    Aluno n[5];
+    int i;
+    int nota1=0;
+    char aluno1[30];
+    for(i=0; i<5; i++)
+    {
+        printf("\nInforme o seu nome:\n");
+        scanf("%s", &n[i].nome);
+        printf("Informe a sua matricula:\n");
+        scanf("%d", &n[i].matricula);
+        printf("Informe a primeira nota:\n");
+        scanf("%d", &n[i].n1);
+        printf("Informe a segunda nota:\n");
+        scanf("%d", &n[i].n2);
+        printf("Informe a terceira nota:\n");
+        scanf("%d", &n[i].n3);
+        if(n[i].n1>nota1)
+        {
+            strcpy(aluno1, n[i].nome);
+            nota1=n[i].n1;
+        }
+    }
+    printf("O numero com a maior nota na primera prova é %s", aluno1);
+}
