@@ -1,0 +1,192 @@
+int main()
+{
+   char nome[10], nomeCI[10], nomeE[10], nomeMais[10];
+    int cpf, sexo, pais, dias, regiao, temporada, brasil, gringos, outros, diasT, pessoas, diasM, iF70, idade, iMA, iFA, iMJ, iFJ,  iMC, iFC, iM70, gringos1, gringos2, gringos3, paisM;
+    float distancia, cidadeM;
+
+    iMA=iFA=iMJ=iFJ=iMC=iFC=iF70=cidadeM=0;
+    diasT=0;
+    diasM=0;
+    pessoas=0;
+    gringos=outros=brasil=0;
+    do
+    {
+        printf("Informe o seu nome primeiro nome:\n");
+        scanf("%s", &nome);
+        printf("Informe o seu CPF:\n");
+        scanf("%d", &cpf);
+        printf("Informe o seu sexo:\n1-Masculino ou 2-Feminino:\n");
+        scanf("%d", &sexo);
+        printf("Informe a sua idade:\n");
+        scanf("%d", &idade);
+        printf("Informe o nome da cidade:\n");
+        scanf("%s", &nomeCI);
+        printf("Infrome o nome do Estado:\n");
+        scanf("%s", &nomeE);
+        printf("Informe o país:\n1-Brasil, 2-Argentina/Paraguay/Uruguai 3-Outros");
+        scanf("%d", &pais);
+        printf("Informe a distância da cidade origem até florianópolis em km:\n");
+        scanf("%f", &distancia);
+        printf("Informe a quantidade de dias que irão se hospedar:\n");
+        scanf("%d", &dias);
+        printf("Informe a região da hospedagem:\n1-Norte 2-Centro 3- Sul:\n");
+        scanf("%d", &regiao);
+        printf("Acabou a temporada:1-Sim ou 2-não");
+        scanf("%d", &temporada);
+        if(pais==1)
+        {
+            brasil++;
+        }
+        if(pais==2)
+        {
+            gringos++;
+        }
+        else if(pais==3)
+        {
+            outros++;
+        }
+        diasT+=dias;
+        pessoas++;
+        if(idade>70 && sexo==1)
+        {
+            iM70++;
+        }
+         if(idade>70 && sexo==2)
+        {
+            iF70++;
+        }
+        if((idade>=25 && idade<=69) && sexo==1)
+        {
+            iMA++;
+        }
+         if((idade>=25 && idade<=69) && sexo==2)
+        {
+            iFA++;
+        }
+        if((idade>=13 && idade<=24) && sexo==1)
+        {
+            iMJ++;
+        }
+        if((idade>=13 && idade<=24) && sexo==2)
+        {
+            iFJ++;
+        }
+        if((idade>=0 && idade<=12) && sexo==1)
+        {
+            iMC++;
+        }
+         if((idade>=0 && idade<=12) && sexo==2)
+        {
+            iFC++;
+        }
+        if(pais==2)
+        {
+            if(regiao==1)
+            {
+                gringos1++;
+            }
+            if(regiao==2)
+            {
+                gringos2++;
+            }
+            if(regiao==3)
+            {
+                gringos3++;
+            }
+        }
+        if(distancia>cidadeM)
+        {
+            cidadeM=distancia;
+            strcpy(nomeMais,nomeCI);
+            paisM=pais;
+        }
+    }while(temporada<2);
+    printf("A quantidade total de dias que irão se hospedar é de %d\n", diasT);
+    diasM=diasT/pessoas;
+    printf("O tempo medio é de %d dias", diasM);
+    if(gringos>=brasil && gringos>=outros)
+    {
+        if(brasil>=outros)
+        {
+            printf("\nO percentual de turitas por pais é de:\n");
+            printf("Argentina/Paraguay/Uruguai é de %.2f %%\n", (float)(pessoas*100)/gringos);
+            printf("Brasil é de %.2f %%\n", (float)(pessoas*100)/brasil);
+            printf("Outros é de %.2f %%\n", (float)(pessoas*100)/outros);
+            
+        }
+        else if(outros>=brasil)
+        {
+            printf("\nO percentual de turitas por pais é de:\n");
+            printf("Argentina/Paraguay/Uruguai é de %.2f %%\n", (float)(pessoas*100)/gringos);
+            printf("Outros é de %.2f %%\n", (float)(pessoas*100)/outros);
+            printf("Brasil é de %.2f %%\n", (float)(pessoas*100)/brasil);
+        }
+    }
+    if(brasil>=gringos && brasil>=outros)
+    {
+        if(gringos>=outros)
+        {
+            printf("\nO percentual de turitas por pais é de:\n");
+            printf("Brasil é de %.2f %%\n", (float)(pessoas*100)/brasil);
+            printf("Argentina/Paraguay/Uruguai é de %.2f %%\n", (float)(pessoas*100)/gringos);
+            printf("Outros é de %.2f %%\n", (float)(pessoas*100)/outros);
+        }
+        else if(outros>=gringos)
+        {
+            printf("\nO percentual de turitas por pais é de:\n");
+            printf("Brasil é de %.2f %%\n", (float)(pessoas*100)/brasil);
+            printf("Outros é de %.2f %%\n", (float)(pessoas*100)/outros);
+            printf("Argentina/Paraguay/Uruguai é de %.2f %%\n", (float)(pessoas*100)/gringos);
+        }
+    }
+    else if(outros>=brasil && outros>=gringos)
+    {
+        if(brasil>=gringos)
+        {
+            printf("\nO percentual de turitas por pais é de:\n");
+            printf("Outros é de %.2f %%\n", (float)(pessoas*100)/outros);
+            printf("Brasil é de %.2f %%\n", (float)(pessoas*100)/brasil);
+            printf("Argentina/Paraguay/Uruguai é de %.2f %%\n", (float)(pessoas*100)/gringos);
+        }
+        else if(gringos>=brasil)
+        {
+            printf("\nO percentual de turitas por pais é de:\n");
+            printf("Outros é de %.2f %%\n", (float)(pessoas*100)/outros);
+            printf("Argentina/Paraguay/Uruguai é de %.2f %%\n", (float)(pessoas*100)/gringos);
+            printf("Brasil é de %.2f %%\n", (float)(pessoas*100)/brasil);
+        }
+    }
+    printf("\nIdosas acima de 70 anos %.2f %%",(float) (pessoas*100)/iF70 );
+    printf("\nIdosos acima de 70 anos %.2f %%", (float)(pessoas*100)/iM70);
+    printf("\nAdultas entre 25 e 69 anos %.2f %%", (float)(pessoas*100)/iFA);
+    printf("\nAdultos entre 25 e 69 anos %.2f %%", (float)(pessoas*100)/iMA);
+    printf("\nJovens mulher entre 13 e 24 anos %.2f %%", (float)(pessoas*100)/iFJ);
+    printf("\nJovens homens entre 13 e 24 anos %.2f %%", (float)(pessoas*100)/iMJ);
+    printf("\nCrianças mulher entre 0 a 12 anos %.2f %%", (float)(pessoas*100)/iFC);
+    printf("\nCrianças homem entre 0 a 12 anos %.2f %%", (float)(pessoas*100)/iMC);
+    if(gringos1>gringos2 && gringos1>gringos3)
+    {
+        printf("\nA região preferida dos gringos é Norte");
+    }
+    if(gringos2>gringos1 && gringos2>gringos3)
+    {
+        printf("\nA região preferida dos gringos é Centro");
+    }
+    if(gringos3>gringos2 && gringos3>gringos1)
+    {
+        printf("\nA regiao preferisa dos gringos é Sul");
+    }
+    if(paisM==1)
+    {
+         printf("\nA cidade mais distante é %s\n %.2f km\nDo país é brasil", nomeMais, cidadeM);
+    }
+    if(paisM==2)
+    {
+        printf("\nA cidade mais distante é %s\n %.2f km\nDo país é Argentina/Paraguay/Uruguai", nomeMais, cidadeM);
+    }
+    if(paisM==3)
+    {
+        printf("\nA cidade mais distante é %s\n %.2f km\nDo país é Outros", nomeMais, cidadeM);
+    }
+    
+}
