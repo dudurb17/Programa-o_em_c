@@ -1,0 +1,51 @@
+#include<string.h>
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+#include<conio.h>
+
+typedef struct{
+    int hora;
+    int minutos;
+    int segundos;
+}Horario;
+
+
+typedef struct{
+    int dia;
+    int mes;
+    int ano;
+}Data;
+
+typedef struct{
+Data data;
+Horario horario;
+char objetivo[30];
+}Compromisso;
+
+void ImprimeData(Compromisso c) // declara o parâmetro como uma struct
+{
+  printf("Dia: %d  mes: %d ano: %d\n", c.data.dia, c.data.mes, c.data.ano);
+}
+void ImprimeHora(Compromisso c)
+{
+    printf("Hora: %d  minuto: %d segundo: %d\nobjetivo:%s", c.horario.hora, c.horario.minutos, c.horario.segundos, c.objetivo);
+}
+
+
+
+int main(){
+    Compromisso compromisso;
+    compromisso.data.dia=24;
+    compromisso.data.mes=1;
+    compromisso.data.ano=2022;
+    ImprimeData(compromisso);
+    compromisso.horario.hora=22;
+    compromisso.horario.minutos=30;
+    compromisso.horario.segundos=33;
+    strcpy(compromisso.objetivo,"aniversario");
+    ImprimeHora(compromisso);
+
+
+
+}
