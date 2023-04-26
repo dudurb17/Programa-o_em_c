@@ -1,0 +1,23 @@
+int main()
+{
+    
+    char nome[15], sobrenome[30], nome2[15], junto[45], maiusculas;
+    char endereco[80];
+    int telefone, idade, tamanho;
+    printf("Informe o seu nome:");
+    fgets(nome, 10, stdin);
+    printf("Infome o seu sobrenome:");
+    fgets(sobrenome, 30, stdin);
+    printf("\nInforme o seu endereço:\n");
+    fgets(endereco, 80, stdin);
+    printf("Informe o seu telefone:\n");
+    scanf("%d", &telefone);
+    printf("Informe a sua idade:\n");
+    scanf("%d", &idade);
+    strcpy(nome2,nome);
+    printf("Nome 2: %s\n", nome2);
+    strncat(nome2, sobrenome, 45);
+    printf("%s\n\n", nome2);
+    tamanho=strlen(nome2);
+    printf("\nO Tamanho da variavel nome2 é de %d", tamanho);
+}
