@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main()
+{
+
+    char nome[15], sobrenome[30], nome2[15], junto[45], criador[20];
+    char endereco[80], string2;
+    int telefone, idade, tamanho, retorno, num1;
+    retorno=0;
+    printf("Informe o seu nome:");
+    fgets(nome, 10, stdin);
+    printf("Infome o seu sobrenome:");
+    fgets(sobrenome, 30, stdin);
+    printf("\nInforme o seu endereço:\n");
+    fgets(endereco, 80, stdin);
+    printf("Informe o seu telefone:\n");
+    scanf("%d", &telefone);
+    printf("Informe a sua idade:\n");
+    scanf("%d", &idade);
+    strcpy(nome2,nome);
+    printf("Nome 2: %s\n", nome2);
+    strncat(nome2, sobrenome, 45);
+    printf("%s\n\n", nome2);
+    tamanho=strlen(nome2);
+    printf("\nO Tamanho da variavel nome2 é de %d", tamanho);
+    printf("\nMaior: %s ", strupr(nome2));
+    printf("Minusculo: %s", strlwr(nome2));
+    printf("Quem é o criador da linguagem C?(Escreva em letra maiúscula):");
+    scanf("%s", &criador);
+    retorno= strcmp(strupr(criador), "DENNIS RITCHIE");
+    printf("%d", retorno);
+                if (retorno == 0)
+                {
+                    printf("\n\nParabéns! Você acertou");
+                }
+                    else
+                    {
+                        printf("\n\nQue pena, você errou. O criador da linguagem C foi Dennis Ritchie");
+                    }
+
+}
