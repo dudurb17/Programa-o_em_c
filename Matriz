@@ -1,0 +1,16 @@
+#include <stdio.h>
+char matriz[15][40], i, j;
+
+int main() 
+{
+        for(i=0;i<15; i++)
+    {
+          for(j=0; j<40; j++)
+        {
+            matriz[i][j]=' ';
+        }
+    }
+        for(i=0; i<15; i++)
+            for(j=0; j<40; j++)
+           printf("%d", matriz[i][j]);
+}
